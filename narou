@@ -50,10 +50,17 @@ xbash)
   set -- bash
   ;;
 xinit)
-  echo "**************************************************************"
-  echo "Please specify /opt/narou/AozoraEpub3 as AozoraEpub3 directory"
-  echo "**************************************************************"
-  set -- narou init
+  case x$# in
+  1)
+    echo "**************************************************************"
+    echo "Please specify /opt/narou/AozoraEpub3 as AozoraEpub3 directory"
+    echo "**************************************************************"
+    set -- narou init
+    ;;
+  *)
+    set -- narou "$@"
+    ;;
+  esac
   ;;
 *)
   set -- narou "$@"
