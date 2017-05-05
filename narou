@@ -39,27 +39,25 @@ case x$# in
 x0) set -- web;;
 esac
 
-for i in "$@"; do
-  case x$i in
-  xweb)
-    # retrieve external IP address of local machine to allow access from other machiens
-    IP=`ip route get 1 | awk '{print $NF;exit}'`
-    opt="-p $IP:8000:8000 $opt"
-    set -- narou web -p 8000 -n
-    ;;
-  xbash)
-    set -- bash
-    ;;
-  xinit)
-    echo "**************************************************************"
-    echo "Please specify /opt/narou/AozoraEpub3 as AozoraEpub3 directory"
-    echo "**************************************************************"
-    set -- narou "$@"
-    ;;
-  *)
-    set -- narou "$@"
-    ;;
-  esac
-done
+case x$1 in
+xweb)
+  # retrieve external IP address of local machine to allow access from other machiens
+  IP=`ip route get 1 | awk '{print $NF;exit}'`
+  opt="-p $IP:8000:8000 $opt"
+  set -- narou web -p 8000 -n
+  ;;
+xbash)
+  set -- bash
+  ;;
+xinit)
+  echo "**************************************************************"
+  echo "Please specify /opt/narou/AozoraEpub3 as AozoraEpub3 directory"
+  echo "**************************************************************"
+  set -- narou init
+  ;;
+*)
+  set -- narou "$@"
+  ;;
+esac
 
 docker run -it --rm $opt -v $data:/opt/narou migimigi/narou "$@"
