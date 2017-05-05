@@ -73,6 +73,14 @@ server-bind を * に設定しました
  ID  |  更新日  |      タイトル
 ```
 
+## Where is data directory
+
+All data are stored in `$HOME/.narou`
+
+## How to use web UI
+
+Run `narou web`.  Then connect to the machine using 8000 port.
+
 ## How to use mail
 
 First, run `narou mail`.  Then edit your `$HOME/.narou/mail_setting.yaml` file.
