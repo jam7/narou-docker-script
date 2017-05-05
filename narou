@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# Usage:
+#   narou <narou-command>
+#
+# Example:
+#   narou -h                    to see on-line help
+#   narou ls                    to see the list of contents
+#   narou download n4830bu      to download n4830bu narou-shousetsu
+#   narou web                   to start web UI
+#
+# Notice:
+#   "narou web" ignore all options and starts web UI at localip:8000
+
+envs="http_proxy https_proxy ftp_proxy no_proxy"
+data=$HOME/.narou
+
+# check environment variables of particular names in $envs and pass them to container
+for i in $envs; do
+  v=`eval echo $"$i"`
+  case x$v in
+  x) ;;   # nothing to do
+  *) opt="-e $i=$v $opt"
+  esac
+done
+
+# initialize narou configuration directory
+if [ ! -d $data ]; then
+  mkdir $data
+fi
+
+for i in "$@"; do
+  case x$i in
+  xweb)
+    # retrieve external IP address of local machine to allow access from other machiens
+    IP=`ip route get 1 | awk '{print $NF;exit}'`
+    opt="-p $IP:8000:8000 $opt"
+    set -- narou web -p 8000 -n
+    ;;
+  xbash)
+    set -- bash
+    ;;
+  *)
+    set -- narou "$@"
+    ;;
+  esac
+done
+
+docker run -it --rm $opt -v $data:/opt/narou migimigi/narou "$@"
