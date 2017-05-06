@@ -29,33 +29,23 @@ if [ ! -d $data ]; then
   mkdir $data
 fi
 
-# initialize narou AozoraEpub3
-if [ ! -d $data/AozoraEpub3 ]; then
-  docker run -it --rm $opt -v $data:/opt/narou migimigi/narou bash -c '(cd /opt; tar cf - AozoraEpub3) | tar xfp -'
-  $0 init
-fi
-
-case x$# in
-x0) set -- web;;
-esac
-
 case x$1 in
 xweb)
   # retrieve external IP address of local machine to allow access from other machiens
   IP=`ip route get 1 | awk '{print $NF;exit}'`
-  opt="-p $IP:8000:8000 $opt"
+  opt="-p $IP:8000-8001:8000-8001 $opt"
   set -- narou web -p 8000 -n
   ;;
+xsh)
+  set -- sh
+  ;;
 xbash)
-  set -- bash
+  set -- sh
   ;;
 xinit)
   case x$# in
-  1)
-    echo "**************************************************************"
-    echo "Please specify /opt/narou/AozoraEpub3 as AozoraEpub3 directory"
-    echo "**************************************************************"
-    set -- narou init
+  x1)
+    set -- narou init -p /opt/narou/AozoraEpub3
     ;;
   *)
     set -- narou "$@"
@@ -67,4 +57,5 @@ xinit)
   ;;
 esac
 
-docker run -it --rm $opt -v $data:/opt/narou migimigi/narou "$@"
+# echo docker run -it --rm $opt -v $data:/opt/narou jam7/narou-alpine "$@"
+docker run -it --rm $opt -v $data:/opt/narou jam7/narou-alpine "$@"
