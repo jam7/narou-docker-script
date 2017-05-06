@@ -24,7 +24,7 @@ $ narou download
 $ narou mail
 ```
 
-First time of execution, it downloads docker images named migimigi/narou.  It also initialize configuration something like:
+First time of execution, it downloads docker images named jam7/narou-alpine and configure narou environment like below:
 
 ```
 $ narou list
@@ -88,13 +88,12 @@ created /opt/narou/mail_setting.yaml
 
 ## License
 
-@ 2016-2017 Kazushi (Jam) Marukawa, All rights reserved.
+@ 2017 Kazushi (Jam) Marukawa, All rights reserved.
 
 This project including all of its source files is released under the terms of [GNU General Public License (version 3 or later)](http://www.gnu.org/licenses/gpl.txt)
 
 ## Related projects
 
 narou.rb is in https://github.com/whiteleaf7/narou.  
-narou-docker is in https://github.com/migimigi/narou-docker.
-
-
+narou-docker is in https://github.com/migimigi/narou-docker.  
+narou-docker-alpine is in https://github.com/jam7/narou-docker-alpine.
