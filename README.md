@@ -28,40 +28,33 @@ First time of execution, it downloads docker images named migimigi/narou.  It al
 
 ```
 $ narou list
-Unable to find image 'migimigi/narou:latest' locally
-latest: Pulling from migimigi/narou
-d54efb8db41d: Pull complete 
-f8b845f45a87: Pull complete 
-e8db7bf7c39f: Pull complete 
-9654c40e9079: Pull complete 
-6d9ef359eaaa: Pull complete 
-b6bcc4641e3e: Pull complete 
-0634427bbb87: Pull complete 
-746dc8c8dbd4: Pull complete 
-32338345e63b: Pull complete 
-fe4231fb54f8: Pull complete 
-12ee4766ea36: Pull complete 
-727c7e2f411d: Pull complete 
-Digest: sha256:d5d5c643bfd18249fec3d81321808aa6ea3b5dff6f719b161093452341e3c6f4
-Status: Downloaded newer image for migimigi/narou:latest
-spawn narou init
+Unable to find image 'jam7/narou-alpine:latest' locally
+latest: Pulling from jam7/narou-alpine
+627beaf3eaaf: Already exists
+1de20f2d8b83: Already exists
+74e619d34827: Already exists
+5ce74db8fefd: Pull complete
+a67c897e7e75: Pull complete
+ca7d3d9dc7e1: Pull complete
+e0bbdd03fe58: Pull complete
+f06199afada5: Pull complete
+f800562d9d65: Pull complete
+4621b6cf5865: Pull complete
+Digest: sha256:af9520cc65ad8f53e60a3b779e912de2a5d534e00a4b8fa59e4748707265cd14
+Status: Downloaded newer image for jam7/narou-alpine:latest
 .narou/ を作成しました
 小説データ/ を作成しました
 ------------------------------
 AozoraEpub3の設定を行います
-                            !!!WARNING!!!                             
+                            !!!WARNING!!!
 AozoraEpub3の構成ファイルを書き換えます。narouコマンド用に別途新規インストールしておくことをオススメします
 
-AozoraEpub3のあるフォルダを入力して下さい:
-(未入力でスキップ)
->/opt/AozoraEpub3
-
 (次のファイルを書き換えました)
-/opt/AozoraEpub3/chuki_tag.txt
+/opt/narou/AozoraEpub3/chuki_tag.txt
 
 (次のファイルをコピーor上書きしました)
-/opt/AozoraEpub3/AozoraEpub3.ini
-/opt/AozoraEpub3/template/OPS/css_custom/vertical_font.css
+/opt/narou/AozoraEpub3/AozoraEpub3.ini
+/opt/narou/AozoraEpub3/template/OPS/css_custom/vertical_font.css
 AozoraEpub3の設定を終了しました
 初期化が完了しました！
 現在のフォルダ下で各種コマンドが使用出来るようになりました。
@@ -69,8 +62,8 @@ AozoraEpub3の設定を終了しました
 device を kindle に設定しました
 端末をKindleに指定したことで、以下の関連設定が変更されました
   → default.enable_half_indent_bracket が true に変更されました
-server-bind を * に設定しました
  ID  |  更新日  |      タイトル
+
 ```
 
 ## Where is data directory
