@@ -72,7 +72,15 @@ All data are stored in `$HOME/.narou`
 
 ## How to use web UI
 
-Run `narou web`.  Then connect to the machine using 8000 port.
+Run `narou web`.  Then connect to port 8000 of the docker host.
+It is required to use direct connection without proxies since
+push_server uses port 8001 which doesn't use http.
+
+## How to convert narou-syousetsu with images
+
+Run `narou download` or `narou convert`.  `jam7/narou-alpine` image uses
+modified AozoraEpub3 which run well with OpenJDK.  Modification is
+already filed as PR.
 
 ## How to use mail
 
@@ -85,6 +93,12 @@ created /opt/narou/mail_setting.yaml
 注意：次回以降のupdateで新着があった場合に送信可能フラグが立ちます
 設定ファイルがあるフォルダを開きますか (y/n)?: n
 ```
+
+## Modifications
+
+1. Apply narou.rb modification to specify AozoraEpub3 path at initialize and use it
+1. Apply narou.rb modification to specify accepted_domains in web UI and use it
+1. Apply AozoraEpub3 modification to work fine under OpenJDK and use it
 
 ## License
 
