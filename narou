@@ -35,6 +35,7 @@ xweb)
   IP=`ip route get 1 | awk '{print $NF;exit}'`
   opt="-p $IP:8000-8001:8000-8001 $opt"
   set -- narou web -p 8000 -n
+  narou s server-addtional-accepted-domains=$IP
   ;;
 xsh)
   set -- sh
