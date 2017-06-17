@@ -94,12 +94,6 @@ created /opt/narou/mail_setting.yaml
 設定ファイルがあるフォルダを開きますか (y/n)?: n
 ```
 
-## Modifications
-
-1. Apply narou.rb modification to specify AozoraEpub3 path at initialize and use it
-1. Apply narou.rb modification to specify accepted_domains in web UI and use it
-1. Apply AozoraEpub3 modification to work fine under OpenJDK and use it
-
 ## License
 
 @ 2017 Kazushi (Jam) Marukawa, All rights reserved.
