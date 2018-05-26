@@ -30,9 +30,10 @@ if [ ! -d $data ]; then
 fi
 
 case x$1 in
-xweb)
+xw|xweb)
   # retrieve external IP address of local machine to allow access from other machiens
   IP=`ip route get 1 | awk '{print $NF;exit}'`
+  echo "connect $IP:8000 from web browser"
   opt="-p $IP:8000-8001:8000-8001 $opt"
   set -- narou web -p 8000 -n
   narou s server-ws-add-accepted-domains=$IP
