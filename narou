@@ -47,7 +47,7 @@ xbash)
 xinit)
   case x$# in
   x1)
-    set -- narou init -p /opt/narou/AozoraEpub3
+    set -- narou init -p /opt/narou/AozoraEpub3 --line-height 1.6
     ;;
   *)
     set -- narou "$@"
