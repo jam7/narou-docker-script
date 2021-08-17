@@ -1,3 +1,5 @@
+# Narou-docker-script is merged into [narou-docker-alpine](https://github.com/jam7/narou-docker-alpine).
+
 # narou-docker-script
 A narou script in order to run narou-docker transparently / narou-dockerを透過的に実行するスクリプト
 
